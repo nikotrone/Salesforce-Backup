@@ -1,7 +1,7 @@
-# GoS2S3
-Learning playground for the Golang
+# Go Salesforce Backup
+The Salesforce platform offers the possibility to request a backup of the entire database. When it is ready, the files (512MB each) are listed for download.
 
-The goal is to learn the Golang programming language for handling streams of webpages and file transfer
+This tool scraps the page and downloads the files one by one and pushes them to an S3 bucket used to store the backup.
 
 ## Setting up environment
 To install the Golang environment visit https://golang.org/doc/install
