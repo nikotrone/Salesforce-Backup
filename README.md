@@ -21,7 +21,7 @@ Open the terminal and go in your GOROOT directory, ie:
 ```
 Clone the project from github with:
 ```console
-# git clone https://github.com/nikotrone/GoS2S3.git
+# git clone https://github.com/nikotrone/go-Salesforce-backup.git
 ```
 
 Inside the program folder there is an example configuration file called *application-config.example.json*
