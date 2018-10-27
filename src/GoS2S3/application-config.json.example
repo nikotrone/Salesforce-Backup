@@ -1,0 +1,21 @@
+{
+	"Salesforce": {
+		"TargetURI": "https://login.salesforce.com",
+		"Username": "YOUR_USERNAME",
+		"Password": "YOUR_PASSWORD",
+		"SecurityToken": "YOUR_SECURITY_TOKEN",
+		"ClientSecret": "CLIENT_SECRET",
+		"ClientId": "YOUR_CLIENT_ID"
+	},
+	"AWS":{
+		"Instance_url": "",
+		"Username": "", 
+		"Access_key_ID" : "YOUR_ACCESS_KEY",
+		"Secret_access_key": "YOUR_SECRET_KEY",
+		"Profile": "default",
+		"Region": "us-central-1",
+		"s3_destination_bucket": "NAME_OF_DESTINATION_BUCKET",
+		"s3_destination_path": "YOUR/DESTINATION/PATH",
+		"s3_destination_prefix": ""
+	}
+}

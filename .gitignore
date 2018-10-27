@@ -1,0 +1,28 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+pkg
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+.DS_Store
+
+# Testing application configuration files
+application-config.json
+application-configP.json
+application-configT.json
+VDBWSDL
+github.com
+golang.org
+
+# Output of the go build
+# App
+
+# DockerFile
+# Dockerfile

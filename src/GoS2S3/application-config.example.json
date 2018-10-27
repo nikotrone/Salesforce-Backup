@@ -1,0 +1,8 @@
+{
+	"TargetURI": "https://login.salesforce.com",
+	"Username": "<USERNAME>",
+	"Password": "<PASSWORD>",
+	"SecurityToken": "<SECURITY_TOKEN>",
+	"ClientSecret": "<CLIENT_SECRET>",
+	"ClientId": "<CLIENT_ID>"
+}
