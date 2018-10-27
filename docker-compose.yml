@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  gos2s3:
+    image: gos2s3:latest
+    build: .
+    
+    
