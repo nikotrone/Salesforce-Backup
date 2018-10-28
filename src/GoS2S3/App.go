@@ -20,6 +20,8 @@ var todayEpoch int64
 
 func main() {
 
+  arguments = os.Args
+
 	timestampEpoch = time.Now()
 	todayEpoch = timestampEpoch.Unix() - (timestampEpoch.Unix() % 86400)
 
@@ -45,9 +47,14 @@ func main() {
 		log.Println("we are in NORMAL mode")
 	}
 
-	var configuration Configuration
 
-	configuration.LoadConfigFrom("application-config.json")
+	for index, element := range arguments {
+		if element == "-config" {
+			var configuration Configuration
+		
+			configuration.LoadConfigFrom("application-config.json")
+		}
+	}
 
 	// refactor methods to use pointer to struct
 	loadSalesforceConfigurationFromFile(&configuration.Salesforce, &activeSalesforceConnection)
