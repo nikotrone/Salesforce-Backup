@@ -20,7 +20,16 @@ var timestampEpoch time.Time
 var todayEpoch int64
 
 func main() {
-	
+
+	arguments := os.Args
+	for index, element := range arguments {
+		if element == "-help"{
+			// Put here some help explanation
+			fmt.Println("This is a help page!")
+			os.Exit(3)
+		}
+	}
+
 
 	timestampEpoch = time.Now()
 	todayEpoch = timestampEpoch.Unix() - (timestampEpoch.Unix() % 86400)
