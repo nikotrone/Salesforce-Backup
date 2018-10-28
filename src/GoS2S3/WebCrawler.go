@@ -1,16 +1,16 @@
 package main
 
-import(
-	"strings"
+import (
 	"golang.org/x/net/html"
+	"strings"
 )
 
 func extractDownloadLinks(webPage string) []string {
 	var foundUrls = make([]string, 0)
 	pageReader := strings.NewReader(webPage)
-	
+
 	tokenizedPage := html.NewTokenizer(pageReader)
-	
+
 	for {
 		analizedToken := tokenizedPage.Next()
 		switch {
@@ -34,15 +34,15 @@ func extractDownloadLinks(webPage string) []string {
 			// Make sure the url begines in http**
 			hasProto := strings.Index(url, "/servlet/servlet.OrgExport") >= 0
 			if hasProto {
-				foundUrls = append(foundUrls, url)		
+				foundUrls = append(foundUrls, url)
 			}
 		}
-		
-	} 
+
+	}
 }
 
 func getHref(token html.Token) (href string, successful bool) {
-	
+
 	for _, thisAttribute := range token.Attr {
 		if thisAttribute.Key == "href" {
 			href = thisAttribute.Val
@@ -50,6 +50,6 @@ func getHref(token html.Token) (href string, successful bool) {
 			break
 		}
 	}
-	
+
 	return
 }
