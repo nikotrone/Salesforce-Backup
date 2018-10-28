@@ -42,8 +42,37 @@ In alternative you can use the basic docker commands to build and run the image/
 ```
 When done you will have an image called gos2s3 in your local repository plus an untagged image used to build the executable
 
+## Usage:
+
+### -config
+
+Allows to configure SalesForce and AWS credentials, URLs, etc. This option will load file named `application-config.json`. Config file format follows :
+
+```
+{
+	"Salesforce": {
+		"TargetURI": "https://login.salesforce.com",
+		"Username": "YOUR_USERNAME",
+		"Password": "YOUR_PASSWORD",
+		"SecurityToken": "YOUR_SECURITY_TOKEN",
+		"ClientSecret": "CLIENT_SECRET",
+		"ClientId": "YOUR_CLIENT_ID"
+	},
+	"AWS":{
+		"Instance_url": "",
+		"Username": "",
+		"Access_key_ID" : "YOUR_ACCESS_KEY",
+		"Secret_access_key": "YOUR_SECRET_KEY",
+		"Profile": "AWS_PROFILE",
+		"Region": "AWS_REGION",
+		"s3_destination_bucket": "NAME_OF_DESTINATION_BUCKET",
+		"s3_destination_path": "YOUR/DESTINATION/PATH",
+		"s3_destination_prefix": ""
+	}
+}
+```
+
 ## External references:
 [Program used to generate WSDL](https://github.com/hooklift/gowsdl)
 
 [Hacktoberfest](https://hacktoberfest.digitalocean.com)
-
