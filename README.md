@@ -45,5 +45,5 @@ When done you will have an image called gos2s3 in your local repository plus an 
 ## External references:
 Program used to generate WSDL https://github.com/hooklift/gowsdl
 ### Hacktoberfest
-    +[Link cek progres ](https://hacktoberfest.digitalocean.com)
+[Hacktoberfest](https://hacktoberfest.digitalocean.com)
 
