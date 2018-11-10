@@ -21,7 +21,7 @@ var todayEpoch int64
 func main() {
 
 	arguments := os.Args
-  
+
 	for index, element := range arguments {
 		if element == "-help"{
 			// Put here some help explanation
@@ -59,13 +59,14 @@ func main() {
 	for index, element := range arguments {
 		if element == "-config" {
 			var configuration Configuration
-		
+
 			configuration.LoadConfigFrom("application-config.json")
 		}
 	}
 
 	// refactor methods to use pointer to struct
 	loadSalesforceConfigurationFromFile(&configuration.Salesforce, &activeSalesforceConnection)
+	loadSalesforceConfigurationFromEnv(salesforceConnection)
 	loadAWSConfigurationFromFile(&configuration.Amazon)
 	// --------------------- END INITIALIZATION ---------------------
 
