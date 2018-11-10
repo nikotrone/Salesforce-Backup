@@ -43,5 +43,7 @@ In alternative you can use the basic docker commands to build and run the image/
 When done you will have an image called gos2s3 in your local repository plus an untagged image used to build the executable
 
 ## External references:
-Program used to generate WSDL https://github.com/hooklift/gowsdl
+[Program used to generate WSDL](https://github.com/hooklift/gowsdl)
+
+[Hacktoberfest](https://hacktoberfest.digitalocean.com)
 

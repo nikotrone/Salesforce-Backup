@@ -1,10 +1,10 @@
 package main
 
 import (
-	"os"
 	"GoS2S3/salesforceUtil"
 	"encoding/json"
 	"log"
+	"os"
 )
 
 func loadSalesforceConfigurationFromEnv(salesforceConnection *salesforceUtil.SF_connection) {
@@ -59,33 +59,33 @@ func (connectionsConf *Configuration) LoadConfigFrom(configFileName string) {
 	//configuration := Configuration{}
 	err := confDecoder.Decode(&connectionsConf)
 	if err != nil {
-	  log.Println("error:", err)
+		log.Println("error:", err)
 	}
 }
 
 type SalesforceConfiguration struct {
-	TargetURI string
-	Username string
-	Password string
+	TargetURI     string
+	Username      string
+	Password      string
 	SecurityToken string
-	ClientSecret string
-	ClientId string
+	ClientSecret  string
+	ClientId      string
 }
 
 type AWSConfiguration struct {
-	Instance_url string
-	Username string
-	Access_key_ID string `json:"Access_key_ID"`
-	Secret_access_key string `json:"Secret_access_key"`
-	Session_token string `json:"Session_token"`
-	Profile string `json:"Profile"`
-	Region string `json:"Region"`
+	Instance_url          string
+	Username              string
+	Access_key_ID         string `json:"Access_key_ID"`
+	Secret_access_key     string `json:"Secret_access_key"`
+	Session_token         string `json:"Session_token"`
+	Profile               string `json:"Profile"`
+	Region                string `json:"Region"`
 	S3_destination_bucket string `json:"s3_destination_bucket"`
-	S3_destination_path string `json:"s3_destination_path"`
+	S3_destination_path   string `json:"s3_destination_path"`
 	S3_destination_prefix string `json:"s3_destination_prefix"`
 }
 
 type Configuration struct {
 	Salesforce SalesforceConfiguration `json:"Salesforce"`
-	Amazon AWSConfiguration `json:"AWS"`
+	Amazon     AWSConfiguration        `json:"AWS"`
 }
