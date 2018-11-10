@@ -1,16 +1,16 @@
-// TODO: 
-//		- refactor the configuration file loader to return a map of strings so that we can add 
+// TODO:
+//		- refactor the configuration file loader to return a map of strings so that we can add
 //			an initializer method to the Salesforce client
 package main
 
-import(	
-	"flag"	
+import(
+	"flag"
 	"log"
 	"os"
 	"time"
 	// "encoding/json"
 	"GoS2S3/salesforceUtil"
-	"GoS2S3/SalesforceWSDL"	
+	"GoS2S3/SalesforceWSDL"
 	"github.com/aws/aws-sdk-go/aws/session"
 )
 
@@ -20,7 +20,7 @@ var timestampEpoch time.Time
 var todayEpoch int64
 
 func main() {
-	
+
 
 	timestampEpoch = time.Now()
 	todayEpoch = timestampEpoch.Unix() - (timestampEpoch.Unix() % 86400)
@@ -37,7 +37,7 @@ func main() {
 	// Command line parsing
 	flag.BoolVar(&debug, "debug", false, "Activate debug mode")
 	flag.Parse()
-	
+
 	if debug {
 		log.Println("")
 		log.Println("DEBUG MODE ON!")
@@ -53,8 +53,9 @@ func main() {
 
 	 // refactor methods to use pointer to struct
 	 loadSalesforceConfigurationFromFile(&configuration.Salesforce, &activeSalesforceConnection)
+	 loadSalesforceConfigurationFromEnv(salesforceConnection)
 	 loadAWSConfigurationFromFile(&configuration.Amazon)
-	// --------------------- END INITIALIZATION ---------------------	
+	// --------------------- END INITIALIZATION ---------------------
 
 
 	activeSalesforceConnection.GetAuthenticationToken()
@@ -76,9 +77,9 @@ func main() {
 	}
 
 
-	
+
 	amazonSession := session.Must(session.NewSession())
-	log.Println("Amazon session created")	
+	log.Println("Amazon session created")
 
 
 	if debug {
@@ -87,11 +88,11 @@ func main() {
 	}
 
 	if len(downloadLinks) == 0 {
-		log.Println("")		
+		log.Println("")
 		log.Println("Nothing to do")
 		log.Println("")
 		return
-	} 
+	}
 
 	creationError := os.Mkdir("tmp", 0777)
 	if (creationError != nil) && (!os.IsExist(creationError)) {
@@ -108,11 +109,11 @@ func main() {
 
 
 	// to avoid the imported and not used error
-	if false {		
+	if false {
 		log.Println(SF_Soap)
 		log.Println(SF_BasicAuth)
 	}
-	
+
 }
 
 
@@ -147,7 +148,7 @@ func transferFile(downloadLink string, salesforceConnectionCookies map[string] i
 	} else {
 		log.Println("Upload Successful!!")
 	}
-	
+
 	return fileName, nil
 }
 

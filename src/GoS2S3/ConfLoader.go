@@ -7,6 +7,33 @@ import (
 	"log"
 )
 
+func loadSalesforceConfigurationFromEnv(salesforceConnection *salesforceUtil.SF_connection) {
+	targetUri := os.Getenv("SALESFORCE_TARGET_URI")
+	if targetUri != "" {
+		salesforceConnection.TargetURI = targetUri
+	}
+	username := os.Getenv("SALESFORCE_USERNAME")
+	if username != "" {
+		salesforceConnection.Username = username
+	}
+	password := os.Getenv("SALESFORCE_PASSWORD")
+	if password != "" {
+		salesforceConnection.Password = password
+	}
+	securityToken := os.Getenv("SALESFORCE_SECURITY_TOKEN")
+	if securityToken != "" {
+		salesforceConnection.SecurityToken = securityToken
+	}
+	clientSecret := os.Getenv("SALESFORCE_CLIENT_SECRET")
+	if clientSecret != "" {
+		salesforceConnection.ClientSecret = clientSecret
+	}
+	clientId := os.Getenv("SALESFORCE_CLIENT_ID")
+	if clientId != "" {
+		salesforceConnection.ClientId = clientId
+	}
+}
+
 func loadSalesforceConfigurationFromFile(configFile *SalesforceConfiguration, salesforceConnection *salesforceUtil.SF_connection) {
 	salesforceConnection.TargetURI = configFile.TargetURI
 	salesforceConnection.Username = configFile.Username
